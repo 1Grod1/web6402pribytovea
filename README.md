@@ -5,3 +5,4 @@
 <h3>Разработка ПО по формированию маршрутов роботехнических систем</h3>
 <h3> "Знание, если оно не определяет действия, мертво". - Плотин</h3>
 ![image](https://github.com/1Grod1/web6402pribytovea/raw/main/Ak.png)
+<img src = "https://github.com/1Grod1/web6402pribytovea/raw/main/Ak.png">

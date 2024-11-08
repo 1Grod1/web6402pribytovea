@@ -45,7 +45,7 @@ nav ul {
     list-style-type: none;
     padding: 0;
 }
-p{
+p,a{
     color: white;
 }
 nav ul li {

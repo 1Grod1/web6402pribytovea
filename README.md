@@ -4,4 +4,4 @@
 <h3>Цель лабораторной работы: изучение основ JavaScript.</h3>
 <h3>Задание на программирование: написать набор функций на языке JavaScript, реализующих требуемый функционал, и загрузить проект в репозиторий.</h3>
 <h3> "Знание, если оно не определяет действия, мертво". - Плотин</h3>
-![Pic](https://github.com/1Grod1/web6402pribytovea/raw/main/Ak.png)
+<img src = "https://github.com/1Grod1/web6402pribytovea/raw/main/Ak.png">

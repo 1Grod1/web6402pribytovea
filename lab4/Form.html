@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Страница Form</title>
+</head>
+<body>
+<header>
+    <h1>Страница Form</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">Обо мне</a></li>
+            <li><a href="gallery.html">Альбомы</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+            <li><a href="flexbox.html">Страница flex</a></li>
+            <li> <a href="grid.html">Страница grid</a></li>
+            <li> <a href="Form.html">Страница form</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Форма отправки данных</h2>
+    <form id="dataForm">
+        <div class="form-group">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error-message" id="nameError"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message" id="emailError"></span>
+        </div>
+        <div class="form-group">
+            <label for="age">Возраст:</label>
+            <input type="number" id="age" name="age" required>
+            <span class="error-message" id="ageError"></span>
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+
+    <h2>Данные с сервера</h2>
+    <div class="loading-indicator" id="loading">Загрузка...</div>
+    <table id="data-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody id="data-table-body">
+        </tbody>
+    </table>
+    <div class="error-message" id="fetchError"></div>
+    <div class="form-group">
+        <button id="loadDataButton">Загрузить таблицу</button>
+    </div>
+</div>
+
+<footer>
+    <p class="text_left">Здесь обычно пишут про какие-нибудь права,</p>
+    <p class="text_left">Название организации </p>
+    <p class="text_right">А тут контакты,</p>
+    <p class="text_right">Но для кантактов есть отдельная страничка</p>
+</footer>
+<script src="script.js"></script> <!-- Подключаем JavaScript -->
+</body>
+</html>

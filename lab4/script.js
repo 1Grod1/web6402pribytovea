@@ -45,21 +45,18 @@ function validateAge(){
 
 }
 
-// Функция отправки формы
 // Асинхронная функция для отправки формы
 async function submitForm(event) {
     // Предотвращаем стандартное поведение отправки формы, чтобы не было перезагрузки страницы
     event.preventDefault();
 
     // Проверяем валидность полей формы с помощью отдельных функций
-    const isNameValid = validateName();  // Проверка имени
-    const isEmailValid = validateEmail(); // Проверка email
-    const isAgeValid = validateAge();    // Проверка возраста
+    const isNameValid = validateName();
+    const isEmailValid = validateEmail(); 
+    const isAgeValid = validateAge(); 
 
     // Если все поля валидны
     if (isNameValid && isEmailValid && isAgeValid) {
-        // Форма валидна, можно отправлять POST-запрос
-
         // Показываем индикатор загрузки, чтобы пользователь видел, что происходит отправка
         loadingIndicator.style.display = 'block';
 
@@ -75,10 +72,8 @@ async function submitForm(event) {
                     'Content-Type': 'application/json'  // Указываем тип контента
                 }
             });
-
-            // Проверяем, что ответ от сервера был успешным (статус 200-299)
+            // Проверяем, что ответ от сервера был успешным
             if (!response.ok) {
-                // Если ответ не ok, выбрасываем ошибку
                 throw new Error(`Ошибка HTTP: ${response.status}`);
             }
 
@@ -101,21 +96,22 @@ data = ${nameInput.value.trim()}, ${emailInput.value.trim()}, ${ageInput.value.t
         console.log('Form has errors, check input values');
     }
 }
+
 // Обработчик события 'DOMContentLoaded', гарантирующий, что код запустится после полной загрузки HTML
 document.addEventListener('DOMContentLoaded', () => {
     // Получаем ссылки на DOM-элементы, которые будут использоваться в скрипте
-    const loadingIndicator = document.getElementById('loading'); // Индикатор загрузки (элемент с id='loading')
-    const dataTableBody = document.getElementById('data-table-body'); // Тело таблицы (<tbody>, элемент с id='data-table-body')
-    const fetchErrorDiv = document.getElementById('fetchError');  // Элемент для отображения ошибок (div с id='fetchError')
-    const dataTable = document.getElementById('data-table'); // Сама таблица (table с id='data-table')
-    const loadDataButton = document.getElementById('loadDataButton'); // Кнопка для загрузки данных (button с id='loadDataButton')
+    const loadingIndicator = document.getElementById('loading'); // Индикатор загрузки 
+    const dataTableBody = document.getElementById('data-table-body'); // Тело таблицы 
+    const fetchErrorDiv = document.getElementById('fetchError');  // Элемент для отображения ошибок 
+    const dataTable = document.getElementById('data-table'); // Сама таблица (
+    const loadDataButton = document.getElementById('loadDataButton'); // Кнопка для загрузки данных
 
     // Асинхронная функция для загрузки данных с сервера
     const fetchData = async () => {
         try {
             // Выполняем запрос к серверу с помощью fetch()
-            const response = await fetch(' http://127.0.0.1:8000/home'); // Замените URL, если он отличается
-            // Проверяем, что ответ сервера успешен (статус 200-299)
+            const response = await fetch(' http://127.0.0.1:8000/home');
+            // Проверяем, что ответ сервера успешен
             if (!response.ok) {
                 // Если ответ не успешный, выбрасываем ошибку
                 throw new Error(`Ошибка HTTP: ${response.status}`);
@@ -125,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Проверяем, что в полученном JSON есть поле "users"
             if(!data.users){
-                // Если поля "users" нет, выбрасываем ошибку, указывая, что формат данных неверный
                 throw new Error('Неверный формат данных JSON: отсутствует поле "users"');
             }
 
@@ -133,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingIndicator.style.display = 'none';
             // Отображаем таблицу, так как данные загружены
             dataTable.style.display = 'table';
-
 
             // Обрабатываем данные и добавляем их в таблицу
             data.users.forEach(user => {
@@ -151,16 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             // Обрабатываем ошибки, которые могут возникнуть при запросе или обработке данных
             console.error('Ошибка при загрузке данных:', error); // Выводим ошибку в консоль
-            // Скрываем индикатор загрузки в случае ошибки
             loadingIndicator.style.display = 'none';
             // Отображаем сообщение об ошибке на странице
             fetchErrorDiv.textContent = 'Ошибка при загрузке данных: ' + error.message;
             fetchErrorDiv.style.display = 'block';
         }
     };
-
-    // Добавляем обработчик события 'click' на кнопку загрузки данных
-    // При нажатии на кнопку вызывается асинхронная функция fetchData для загрузки данных
+    // обработчик события 'click', после нажатия на кнопку вызывается асинхронная функция fetchData для загрузки данных
     loadDataButton.addEventListener('click', fetchData);
 });
 // Добавляем обработчики событий

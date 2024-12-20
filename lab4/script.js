@@ -72,8 +72,7 @@ async function submitForm(event) {
                     'Content-Type': 'application/json'  // Указываем тип контента
                 }
             });
-
-            // Проверяем, что ответ от сервера был успешным (статус 200-299)
+            // Проверяем, что ответ от сервера был успешным
             if (!response.ok) {
                 throw new Error(`Ошибка HTTP: ${response.status}`);
             }
@@ -97,6 +96,7 @@ data = ${nameInput.value.trim()}, ${emailInput.value.trim()}, ${ageInput.value.t
         console.log('Form has errors, check input values');
     }
 }
+
 // Обработчик события 'DOMContentLoaded', гарантирующий, что код запустится после полной загрузки HTML
 document.addEventListener('DOMContentLoaded', () => {
     // Получаем ссылки на DOM-элементы, которые будут использоваться в скрипте

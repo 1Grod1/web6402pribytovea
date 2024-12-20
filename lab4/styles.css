@@ -76,7 +76,7 @@ table {
 th, td {
     border: 1px solid #3d0b62;
     padding: 8px;
-    text-align: left; /* Выравнивание по левому краю */
+    text-align: left; 
     background-color: #ffffff;
 }
 th {
@@ -181,7 +181,7 @@ nav button {
     height: 20px;
     border-radius: 50%;
     background-color: #0e52ff;
-    position: absolute;/* Позиционируем элемент абсолютно относительно ближайшего позиционированного родителя (для анимации) */
+    position: absolute;/* Позиционируем элемент абсолютно относительно ближайшего позиционированного родителя */
     animation: moveX 3.05s ease-in-out 0s infinite alternate, moveY 2.4s ease-in-out 0s infinite alternate;/* Задаем анимацию moveX и moveY */
 }
 @keyframes moveX {

@@ -52,8 +52,8 @@ async function submitForm(event) {
 
     // Проверяем валидность полей формы с помощью отдельных функций
     const isNameValid = validateName();
-    const isEmailValid = validateEmail(); 
-    const isAgeValid = validateAge(); 
+    const isEmailValid = validateEmail();
+    const isAgeValid = validateAge();
 
     // Если все поля валидны
     if (isNameValid && isEmailValid && isAgeValid) {
@@ -100,10 +100,10 @@ data = ${nameInput.value.trim()}, ${emailInput.value.trim()}, ${ageInput.value.t
 // Обработчик события 'DOMContentLoaded', гарантирующий, что код запустится после полной загрузки HTML
 document.addEventListener('DOMContentLoaded', () => {
     // Получаем ссылки на DOM-элементы, которые будут использоваться в скрипте
-    const loadingIndicator = document.getElementById('loading'); // Индикатор загрузки 
-    const dataTableBody = document.getElementById('data-table-body'); // Тело таблицы 
-    const fetchErrorDiv = document.getElementById('fetchError');  // Элемент для отображения ошибок 
-    const dataTable = document.getElementById('data-table'); // Сама таблица (
+    const loadingIndicator = document.getElementById('loading'); // Индикатор загрузки
+    const dataTableBody = document.getElementById('data-table-body'); // Тело таблицы
+    const fetchErrorDiv = document.getElementById('fetchError');  // Элемент для отображения ошибок
+    const dataTable = document.getElementById('data-table'); // Сама таблица
     const loadDataButton = document.getElementById('loadDataButton'); // Кнопка для загрузки данных
 
     // Асинхронная функция для загрузки данных с сервера
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fetchErrorDiv.style.display = 'block';
         }
     };
-    // обработчик события 'click', после нажатия на кнопку вызывается асинхронная функция fetchData для загрузки данных
+ // обработчик события 'click', после нажатия на кнопку вызывается асинхронная функция fetchData для загрузки данных
     loadDataButton.addEventListener('click', fetchData);
 });
 // Добавляем обработчики событий
@@ -159,5 +159,3 @@ form.addEventListener('submit', submitForm);
 nameInput.addEventListener('blur', validateName);
 emailInput.addEventListener('blur', validateEmail);
 ageInput.addEventListener('blur', validateAge);
-
-
